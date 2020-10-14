@@ -17,10 +17,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False # this turn off flask sql al
 app.secret_key = 'bob'
 api = Api(app)
 
-@app.before_first_request         # No need of running create_table.py file now!, create data.db from above sqlite configurations.
-def create_table():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity) 
 
 # Going to use seperate item file 
